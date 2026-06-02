@@ -44,6 +44,7 @@
   .app-header-logo{font-size:2rem;font-weight:900;line-height:1}
   .app-2col{display:grid;grid-template-columns:1fr 2fr;gap:16px}
   .app-dash{display:grid;grid-template-columns:1fr 1fr;gap:16px;height:calc(100vh - 160px)}
+  .app-shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;height:calc(100vh - 160px)}
   .app-stats-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
   .app-stats-3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
   .app-day-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
@@ -68,6 +69,8 @@
     .app-2col{grid-template-columns:1fr !important;gap:12px !important}
     .app-dash{grid-template-columns:1fr !important;gap:12px !important;height:auto !important}
     .app-dash > div{min-height:70vh}
+    .app-shop-grid{grid-template-columns:1fr !important;gap:12px !important;height:auto !important}
+    .app-shop-grid > div{min-height:70vh}
 
     /* Stat grids */
     .app-stats-4{grid-template-columns:repeat(2,1fr) !important;gap:8px !important}
@@ -773,9 +776,10 @@ function ShoppingList({store,storeLabel,storeIcon,accentColor,session}){
 
 function ShoppingLists({session}){
   return(
-    <div className="app-dash">
+    <div className="app-shop-grid">
       <ShoppingList store="woolworths" storeLabel="Woolworths" storeIcon="🛒" accentColor="#22c55e" session={session}/>
       <ShoppingList store="tassaway" storeLabel="Tassway" storeIcon="📦" accentColor="#f59e0b" session={session}/>
+      <ShoppingList store="others" storeLabel="Others" storeIcon="🛍️" accentColor="#8b5cf6" session={session}/>
     </div>
   );
 }
